@@ -116,7 +116,7 @@ function main() {
     document.getElementById('output').innerHTML += energy_status.toLocaleString() + '<br><br>';
 
     document.getElementById('output').innerHTML += 'Total des ressources nécéssaires pour tous les batîments, recherches et satellites (M, C, D) :' + '<br>';
-    for (const i = 0; i < total_cost.length; i++) {
+    for (let i = 0; i < total_cost.length; i++) {
         document.getElementById('output').innerHTML += total_cost[i].toLocaleString() + '<br>';
     }
     document.getElementById('output').innerHTML += '<br>';
