@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Ogame Tools</a>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <h3>Frêt supplémentaire en fonction d'Hyperespace</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <form onsubmit="return main()">
+                    <div class="form-group">
+                        <label for="hyperespace_research_level">Niveau actuel d'Hyperespace</label>
+                        <input type="number" class="form-control" id="hyperespace_research_level" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="hyperespace_research_level">Pourcentage de cargo supplémentaire par niveau d'Hyperespace</label>
+                        <input type="number" class="form-control" id="hyperespace_research_cargo_boost_percentage" value="2" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="recycler_number">Nombre de recycleurs</label>
+                        <input type="number" class="form-control" id="recycler_number" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="small_cargo_number">Nombre de petits transporteurs</label>
+                        <input type="number" class="form-control" id="small_cargo_number" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="large_cargo_number">Nombre de grands transporteurs</label>
+                        <input type="number" class="form-control" id="large_cargo_number" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-calculator"></i>
+                        Calculer
+                    </button>
+                    <button type="button" onclick="resetForm()" class="btn btn-secondary ml-2">
+                        <i class="fas fa-trash"></i>
+                        Reset
+                    </button>
+                </form>
+            </div>
+            <div class="col-md">
+                <div class="mb-2">
+                    <b>Résultat</b>
+                </div>
+                <div id="output"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/lib.js"></script>
+    <script src="../js/hyperspaceCargoCapacity.js"></script>
+</body>
+
+</html>
