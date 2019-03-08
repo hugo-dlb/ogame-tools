@@ -57,7 +57,7 @@ function main() {
 
     document.getElementById('output').innerHTML += '<br>';
 
-    document.getElementById('output').innerHTML += 'Coût de Hyperespace ' + config['hyperespace_research_level'] + ' : ' + format_resources_cost(next_hyperespace_level_cost);
+    document.getElementById('output').innerHTML += 'Coût de Hyperespace ' + (config['hyperespace_research_level'] + 1) + ' : ' + format_resources_cost(next_hyperespace_level_cost);
 
     return false;
 }
