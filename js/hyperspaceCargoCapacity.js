@@ -16,10 +16,10 @@ function loadValuesFromForm() {
 
 function resetForm() {
     config = {};
-    document.getElementById('hyperespace_research_level').value = '';
-    document.getElementById('recycler_number').value = '';
-    document.getElementById('small_cargo_number').value = '';
-    document.getElementById('large_cargo_number').value = '';
+    document.getElementById('hyperespace_research_level').value = 1;
+    document.getElementById('recycler_number').value = 0;
+    document.getElementById('small_cargo_number').value = 0;
+    document.getElementById('large_cargo_number').value = 0;
     document.getElementById('hyperespace_research_cargo_boost_percentage').value = 2;
 }
 
