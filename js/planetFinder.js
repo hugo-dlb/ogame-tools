@@ -43,7 +43,7 @@ function main() {
     // main logic
 
     // first call to find player id
-    window.fetch(`https://s${config['universe_id']}-${config['server']}/api/players.xml`)
+    window.fetch(`https://s${config['universe_id']}-${config['server']}/api/players.xml`, { crossDomain: true })
         .then(response => response.text())
         .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
         .then(data => {
@@ -54,7 +54,7 @@ function main() {
                     playerId = node.attributes.id.value;
 
                     // second call to find player planets
-                    window.fetch(`https://s${config['universe_id']}-${config['server']}/api/universe.xml`)
+                    window.fetch(`https://s${config['universe_id']}-${config['server']}/api/universe.xml`, { crossDomain: true })
                         .then(response => response.text())
                         .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
                         .then(data => {
