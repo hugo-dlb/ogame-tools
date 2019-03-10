@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.min.js"
+        integrity="sha384-5B8/4F9AQqp/HCHReGLSOWbyAOwnJsPrvx6C0+VPUr44Olzi99zYT1xbVh+ZanQJ"
+        crossorigin="anonymous"></script>
+</head>
+
+<style>
+    #search-loading-button {
+        display: none;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Ogame Tools</a>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <h3>Chercheur de planètes</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <form onsubmit="return main()">
+                    <div class="form-group">
+                        <label for="server">Serveur</label>
+                        <select class="form-control" id="server">
+                            <option value="ar.ogame.gameforge.com">Argentina</option>
+                            <option value="br.ogame.gameforge.com">Brazil</option>
+                            <option value="hr.ogame.gameforge.com">Croatia</option>
+                            <option value="cz.ogame.gameforge.com">Czech Republic</option>
+                            <option value="dk.ogame.gameforge.com">Denmark</option>
+                            <option value="fi.ogame.org">Finland</option>
+                            <option value="fr.ogame.gameforge.com" selected="selected">France</option>
+                            <option value="de.ogame.gameforge.com">Germany</option>
+                            <option value="gr.ogame.gameforge.com">Greece</option>
+                            <option value="hu.ogame.gameforge.com">Hungary</option>
+                            <option value="it.ogame.gameforge.com">Italy</option>
+                            <option value="jp.ogame.gameforge.com">Japon</option>
+                            <option value="mx.ogame.gameforge.com">Mexico</option>
+                            <option value="nl.ogame.gameforge.com">Netherlands</option>
+                            <option value="ogame.no">Norway</option>
+                            <option value="pl.ogame.gameforge.com">Poland</option>
+                            <option value="pt.ogame.gameforge.com">Portugal</option>
+                            <option value="ro.ogame.gameforge.com">Romania</option>
+                            <option value="ru.ogame.gameforge.com">Russian Federation</option>
+                            <option value="sk.ogame.gameforge.com">Slovakia</option>
+                            <option value="ogame.si">Slovenia</option>
+                            <option value="es.ogame.gameforge.com">Spain</option>
+                            <option value="se.ogame.gameforge.com">Sweden</option>
+                            <option value="tw.ogame.gameforge.com">Taiwan</option>
+                            <option value="tr.ogame.gameforge.com">Turkey</option>
+                            <option value="ae.ogame.org">United Arab Emirates</option>
+                            <option value="en.ogame.gameforge.com">United Kingdom</option>
+                            <option value="us.ogame.gameforge.com">USA</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="universe_id">Numéro d'univers</label>
+                        <input type="number" min="0" class="form-control" id="universe_id" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="recycler_number">Joueur</label>
+                        <input class="form-control" id="username" required />
+                    </div>
+                    <button id="search-button" type="submit" class="btn btn-primary">
+                        <i class="fas fa-globe"></i>
+                        Rechercher
+                    </button>
+                    <button id="search-loading-button" type="submit" class="btn btn-primary" disabled>
+                        <span class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
+                        Recherche en cours...
+                    </button>
+                </form>
+            </div>
+            <div class="col-md">
+                <div class="mb-2">
+                    <b>Résultat</b>
+                </div>
+                <div id="output"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/planetsFinder.js"></script>
+</body>
+
+</html>
