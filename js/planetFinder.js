@@ -50,7 +50,7 @@ function main() {
             const players = data.getElementsByTagName("player");
             for (let i = 0; i < players.length; i++) {
                 const node = players[i];
-                if (node.attributes.name.value === config['username']) {
+                if (node.attributes.name.value.toLowerCase() === config['username'].toLowerCase()) {
                     playerId = node.attributes.id.value;
 
                     // second call to find player planets
@@ -66,22 +66,26 @@ function main() {
                                 }
                             }
 
-                            if (!playerId) {
-                                toggleSearchLoading(false);
-                                alert("Impossible de trouver le joueur " + config['username'] + ".");
-                                return false;
-                            }
-
                             // displaying results
                             for (let i = 0; i < playerPlanets.length; i++) {
                                 document.getElementById('output').innerHTML += playerPlanets[i] + '<br/>';
                             }
 
                             toggleSearchLoading(false);
+                        })
+                        .catch(err => {
+                            toggleSearchLoading(false);
+                            alert("Une erreur technique est survenue.");
                         });
 
                     break;
                 }
+            }
+
+            if (!playerId) {
+                toggleSearchLoading(false);
+                alert("Impossible de trouver le joueur " + config['username'] + ".");
+                return false;
             }
         })
         .catch(err => {
