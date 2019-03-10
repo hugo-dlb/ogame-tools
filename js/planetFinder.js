@@ -43,7 +43,7 @@ function main() {
     // main logic
 
     // first call to find player id
-    window.fetch(`https://s${config['universe_id']}-${config['server']}/api/players.xml`, { crossDomain: true })
+    window.fetch(`https://cors-anywhere.herokuapp.com/https://s${config['universe_id']}-${config['server']}/api/players.xml`)
         .then(response => response.text())
         .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
         .then(data => {
@@ -54,7 +54,7 @@ function main() {
                     playerId = node.attributes.id.value;
 
                     // second call to find player planets
-                    window.fetch(`https://s${config['universe_id']}-${config['server']}/api/universe.xml`, { crossDomain: true })
+                    window.fetch(`https://cors-anywhere.herokuapp.com/https://s${config['universe_id']}-${config['server']}/api/universe.xml`)
                         .then(response => response.text())
                         .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
                         .then(data => {
