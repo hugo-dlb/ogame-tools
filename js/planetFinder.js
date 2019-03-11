@@ -32,6 +32,10 @@ function toggleSearchLoading(bLoading) {
     }
 }
 
+function timestampConverter(timestamp) {
+	return new Date(timestamp * 1000);
+}
+
 function main() {
     loadValuesFromForm();
     clearOutput();
@@ -39,6 +43,7 @@ function main() {
 
     let playerId;
     let playerPlanets = [];
+    let playerMoons = [];
 
     // main logic
 
@@ -54,22 +59,29 @@ function main() {
                     playerId = node.attributes.id.value;
 
                     // second call to find player planets
-                    window.fetch(`https://cors-anywhere.herokuapp.com/https://s${config['universe_id']}-${config['server']}/api/universe.xml`)
+                    window.fetch(`https://cors-anywhere.herokuapp.com/https://s${config['universe_id']}-${config['server']}/api/playerData.xml?id=${playerId}`)
                         .then(response => response.text())
                         .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
                         .then(data => {
                             const planets = data.getElementsByTagName("planet");
                             for (let i = 0; i < planets.length; i++) {
                                 const node = planets[i];
-                                if (node.attributes.player.value === playerId) {
-                                    playerPlanets.push(node.attributes.coords.value);
+                                playerPlanets.push(node.attributes.coords.value);
+                                const moon = node.getElementsByTagName("moon");
+                                playerMoons[i] = "";
+                                if (moon.length == 1) {
+                                    playerMoons[i] = "(L)";
                                 }
                             }
-
+							
                             // displaying results
                             for (let i = 0; i < playerPlanets.length; i++) {
-                                document.getElementById('output').innerHTML += playerPlanets[i] + '<br/>';
+                                document.getElementById('output').innerHTML += playerPlanets[i] + ' ' + playerMoons[i] + '<br/>';
                             }
+							
+							// displaying last update							
+							const playerData = data.getElementById(playerId);
+							document.getElementById('output').innerHTML += '<br/> Date de mise à jour : ' + timestampConverter(playerData.attributes.timestamp.value);
 
                             toggleSearchLoading(false);
                         })
