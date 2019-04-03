@@ -1,0 +1,18 @@
+.step-number {
+    font-weight: 600;
+    font-size: 130%;
+}
+
+.card.step {
+    cursor: pointer;
+    width: 100%;
+}
+
+.card.step:active {
+    background-color: #f7f7f7;
+}
+
+.disabled-step {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}

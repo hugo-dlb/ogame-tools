@@ -19,6 +19,7 @@
         integrity="sha384-5B8/4F9AQqp/HCHReGLSOWbyAOwnJsPrvx6C0+VPUr44Olzi99zYT1xbVh+ZanQJ"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/phalanx-universe-coverage.css">
 </head>
 
 <style>
@@ -36,11 +37,34 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col">
-                <h3>Chercheur de planètes</h3>
+                <h3>Couverture de phalange</h3>
+            </div>
+        </div>
+        <div class="row mb-20">
+            <div class="col">
+                <button class="button card step">
+                    <div class="card-body">
+                        <span class="step-number">1.</span> Joueur
+                    </div>
+                </button>
+            </div>
+            <div class="col">
+                <button class="card step disabled-step">
+                    <div class="card-body">
+                        <span class="step-number">2.</span> Phalanges
+                    </div>
+                </button>
+            </div>
+            <div class="col">
+                <button class="card step disabled-step">
+                    <div class="card-body">
+                        <span class="step-number">3.</span> Résultats
+                    </div>
+                </button>
             </div>
         </div>
         <div class="row">
-            <div class="col-md">
+            <div #first-step class="col-md">
                 <form onsubmit="return main()">
                     <div class="form-group">
                         <label for="server">Serveur</label>
@@ -84,24 +108,18 @@
                         <input class="form-control" id="username" required />
                     </div>
                     <button id="search-button" type="submit" class="btn btn-primary">
-                        <i class="fas fa-globe"></i>
-                        Rechercher
+                        <i class="fas fa-arrow-right"></i>
+                        Etape suivante
                     </button>
                     <button id="search-loading-button" type="submit" class="btn btn-primary" disabled>
                         <span class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
-                        Recherche en cours...
+                        Chargement en cours...
                     </button>
                 </form>
             </div>
-            <div class="col-md">
-                <div class="mb-2">
-                    <b>Résultat</b>
-                </div>
-                <div id="output"></div>
-            </div>
         </div>
     </div>
-    <script src="../js/planetFinder.js"></script>
+    <script src="../js/phalanxUniverseCoverage.js"></script>
 </body>
 
 </html>
