@@ -67,7 +67,7 @@ function main() {
                                 aPlayerPlanets.push(oNode.attributes.coords.value);
                                 const oMoon = oNode.getElementsByTagName('moon');
                                 aPlayerMoons[i] = '';
-                                if (oMoon.length == 1) {
+                                if (oMoon.length === 1) {
                                     aPlayerMoons[i] = '(L)';
                                 }
                             }

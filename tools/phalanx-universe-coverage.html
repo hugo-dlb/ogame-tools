@@ -19,13 +19,8 @@
         integrity="sha384-5B8/4F9AQqp/HCHReGLSOWbyAOwnJsPrvx6C0+VPUr44Olzi99zYT1xbVh+ZanQJ"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/phalanx-universe-coverage.css">
 </head>
-
-<style>
-    #search-loading-button {
-        display: none;
-    }
-</style>
 
 <body>
     <nav class="navbar navbar-dark bg-primary">
@@ -36,12 +31,35 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col">
-                <h3>Chercheur de planètes</h3>
+                <h3>Couverture de phalange</h3>
+            </div>
+        </div>
+        <div class="row mb-20">
+            <div class="col">
+                <button id="first-step-button" class="card step current">
+                    <div class="card-body">
+                        <span class="step-number">1.</span> Joueur
+                    </div>
+                </button>
+            </div>
+            <div class="col">
+                <button id="second-step-button" class="card step disabled-step">
+                    <div class="card-body">
+                        <span class="step-number">2.</span> Phalanges
+                    </div>
+                </button>
+            </div>
+            <div class="col">
+                <button id="third-step-button" class="card step disabled-step">
+                    <div class="card-body">
+                        <span class="step-number">3.</span> Résultats
+                    </div>
+                </button>
             </div>
         </div>
         <div class="row">
-            <div class="col-md">
-                <form onsubmit="return main()">
+            <div id="first-step-container" class="col-md">
+                <form onsubmit="event.preventDefault(); submitFirstStep();">
                     <div class="form-group">
                         <label for="server">Serveur</label>
                         <select class="form-control" id="server">
@@ -83,25 +101,33 @@
                         <label for="recycler_number">Joueur</label>
                         <input class="form-control" id="username" required />
                     </div>
-                    <button id="search-button" type="submit" class="btn btn-primary">
-                        <i class="fas fa-globe"></i>
-                        Rechercher
+                    <button type="submit" class="btn btn-primary search-button">
+                        <i class="fas fa-arrow-right"></i>
+                        Etape suivante
                     </button>
-                    <button id="search-loading-button" type="submit" class="btn btn-primary" disabled>
+                    <button type="submit" class="btn btn-primary search-loading-button" disabled>
                         <span class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
-                        Recherche en cours...
+                        Chargement en cours...
                     </button>
                 </form>
             </div>
-            <div class="col-md">
-                <div class="mb-2">
-                    <b>Résultat</b>
-                </div>
-                <div id="output"></div>
+            <div id="second-step-container" class="col-md">
+                <form id="second-step-form" onsubmit="return submitSecondStep()">
+                </form>
+                <button type="submit" form="second-step-form" class="btn btn-primary search-button">
+                    <i class="fas fa-arrow-right"></i>
+                    Etape suivante
+                </button>
+                <button type="submit" class="btn btn-primary search-loading-button" disabled>
+                    <span class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
+                    Chargement en cours...
+                </button>
+            </div>
+            <div id="third-step-container" class="col-md">
             </div>
         </div>
     </div>
-    <script src="../js/planetFinder.js"></script>
+    <script src="../js/phalanxUniverseCoverage.js"></script>
 </body>
 
 </html>
