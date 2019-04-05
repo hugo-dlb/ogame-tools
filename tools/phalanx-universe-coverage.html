@@ -22,12 +22,6 @@
     <link rel="stylesheet" href="../css/phalanx-universe-coverage.css">
 </head>
 
-<style>
-    #search-loading-button {
-        display: none;
-    }
-</style>
-
 <body>
     <nav class="navbar navbar-dark bg-primary">
         <div class="container">
@@ -42,21 +36,21 @@
         </div>
         <div class="row mb-20">
             <div class="col">
-                <button class="button card step">
+                <button id="first-step-button" class="card step current">
                     <div class="card-body">
                         <span class="step-number">1.</span> Joueur
                     </div>
                 </button>
             </div>
             <div class="col">
-                <button class="card step disabled-step">
+                <button id="second-step-button" class="card step disabled-step">
                     <div class="card-body">
                         <span class="step-number">2.</span> Phalanges
                     </div>
                 </button>
             </div>
             <div class="col">
-                <button class="card step disabled-step">
+                <button id="third-step-button" class="card step disabled-step">
                     <div class="card-body">
                         <span class="step-number">3.</span> Résultats
                     </div>
@@ -64,8 +58,8 @@
             </div>
         </div>
         <div class="row">
-            <div #first-step class="col-md">
-                <form onsubmit="return main()">
+            <div id="first-step-container" class="col-md">
+                <form onsubmit="event.preventDefault(); submitFirstStep();">
                     <div class="form-group">
                         <label for="server">Serveur</label>
                         <select class="form-control" id="server">
@@ -107,15 +101,29 @@
                         <label for="recycler_number">Joueur</label>
                         <input class="form-control" id="username" required />
                     </div>
-                    <button id="search-button" type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary search-button">
                         <i class="fas fa-arrow-right"></i>
                         Etape suivante
                     </button>
-                    <button id="search-loading-button" type="submit" class="btn btn-primary" disabled>
+                    <button type="submit" class="btn btn-primary search-loading-button" disabled>
                         <span class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
                         Chargement en cours...
                     </button>
                 </form>
+            </div>
+            <div id="second-step-container" class="col-md">
+                <form id="second-step-form" onsubmit="return submitSecondStep()">
+                </form>
+                <button type="submit" form="second-step-form" class="btn btn-primary search-button">
+                    <i class="fas fa-arrow-right"></i>
+                    Etape suivante
+                </button>
+                <button type="submit" class="btn btn-primary search-loading-button" disabled>
+                    <span class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
+                    Chargement en cours...
+                </button>
+            </div>
+            <div id="third-step-container" class="col-md">
             </div>
         </div>
     </div>

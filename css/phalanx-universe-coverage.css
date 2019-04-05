@@ -1,3 +1,7 @@
+.search-loading-button {
+    display: none;
+}
+
 .step-number {
     font-weight: 600;
     font-size: 130%;
@@ -12,7 +16,23 @@
     background-color: #f7f7f7;
 }
 
+.card.step.current {
+    border: 2px solid #027bff;
+}
+
 .disabled-step {
     opacity: 0.5;
     cursor: not-allowed !important;
+}
+
+.list-group-item {
+    display: block !important;
+}
+
+#second-step-container {
+    display: none;
+}
+
+#third-step-container {
+    display: none;
 }
